@@ -35,7 +35,9 @@ export default function defineProject({ command, mode, isSsrBuild, isPreview }: 
               manualChunks: {
                 react: ["react", "react-dom"],
                 reactRouter: ["react-router"],
-                shadcn: ['@/compponents/ui'],
+                reactQuery: ["@tanstack/react-query", "@tanstack/react-query-devtools"],
+                i18n: ["react-i18next", "i18next", "i18next-http-backend", "i18next-browser-languagedetector"],
+                reactUse: ["react-use"],
                 ui: [
                   "@radix-ui/react-slot",
                   "class-variance-authority",
