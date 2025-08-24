@@ -1,0 +1,13 @@
+{
+  "welcome": "Welcome",
+  "message": "Hello",
+  "buttons": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete"
+  },
+  "errors": {
+    "required": "This field is required",
+    "invalid": "Invalid value"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "welcome": "欢迎",
+  "message": "你好",
+  "buttons": {
+    "save": "保存",
+    "cancel": "取消",
+    "delete": "删除"
+  },
+  "errors": {
+    "required": "此字段为必填项",
+    "invalid": "无效的值"
+  }
+}

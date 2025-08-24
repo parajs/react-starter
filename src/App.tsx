@@ -1,22 +1,34 @@
 
-import { StrictMode } from 'react'
-import './App.css'
-import { BrowserRouter, Outlet, Route, Routes } from 'react-router'
-import Dashboard from './pages/Dashboard'
-import Home from './pages/Home'
-import Settings from './pages/Settings'
+// react-router 声明模式示例
+import { lazy, StrictMode, Suspense } from 'react'
+import { BrowserRouter,  Route, Routes } from 'react-router'
+import Home from '@/pages/home/Home'
+import Settings from '@/pages/user/settings/Settings'
+import delayForComponet from '@/utils/delayForComponet'
+const Dashboard = lazy(() => import('@/pages/dashboard/Dashboard'));
+const About = lazy(() => delayForComponet(import('@/pages/about/About')));
+
 function App() {
   return (
-   <BrowserRouter>
-      <StrictMode>
-          <Routes>
-            <Route index element={<Home />} />
-            <Route path="dashboard" element={<Dashboard />}>
-              <Route path="settings" element={<Settings />} />
-            </Route>
+  <StrictMode>
+      <Suspense fallback={<div>Loading...</div>}>
+        <BrowserRouter>
+            <Routes>
+              <Route index element={<Home />}  />
+              <Route 
+              path="dashboard" 
+              element={<Dashboard />}  
+              >
+              </Route>
+              <Route path="settings" element={<Settings />}   />
+              <Route 
+              path="about" 
+              element={<About />}
+              />
           </Routes>
-      </StrictMode>
-    </BrowserRouter>
+        </BrowserRouter>
+    </Suspense>
+  </StrictMode>
   )
 }
 

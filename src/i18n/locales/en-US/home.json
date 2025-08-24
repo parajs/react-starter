@@ -1,0 +1,7 @@
+{
+  "title": "Home",
+  "subtitle": "Welcome to our application",
+  "item": "{count, plural, =0 {no projects} one {# project} other {# projects}}",
+  "genderSentence": "{gender, select, male {He avoids bugs.} female {She avoids bugs.} other {They avoid bugs.}}",
+  "dateFormat": "Last updated on {date, date, medium}"
+}

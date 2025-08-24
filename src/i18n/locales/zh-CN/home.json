@@ -1,0 +1,7 @@
+{
+  "title": "首页",
+  "subtitle": "欢迎使用我们的应用",
+  "item": "{count, plural, =0 {没有项目} one {# 个项目} other {# 个项目}}",
+  "genderSentence": "{性别, 选择, 男性 {He avoids bugs.} 女性 {She avoids bugs.} 其他 {They avoid bugs.}}",
+  "dateFormat": "最后更新于 {date, date, medium}"
+}
