@@ -1,9 +1,13 @@
 import { popularCurrencies } from "@/api";
 import { Button } from "@/components/ui/button";
+import { useUserStore } from "@/stores";
 import { useQuery } from "@tanstack/react-query";
 import { useTranslation } from 'react-i18next';
+import Reactsvg from '@/assets/react.svg?react';
+
 
 export default function Home(){
+     const { token } = useUserStore()
     const { t } = useTranslation();
     const query = useQuery({ 
         queryKey: ['todos',], 
@@ -29,11 +33,13 @@ export default function Home(){
         </ul>            
     }
    return <div>
-         Home
-         <h1>{t('common:welcome')}</h1>
-        <p>{t('home:subtitle')}</p>
-        <button>{t('common:buttons.save')}</button>
-        <Button className="mb-5" onClick={getCurrencies}>click me</Button>
-        <div className="border p-4 rounded-2xl">{ listContent }</div>
-    </div>
+            <Reactsvg />
+            <div>Home</div>
+            <div>{ token}</div>
+            <h1>{t('common:welcome')}</h1>
+            <p>{t('home:subtitle')}</p>
+            <button>{t('common:buttons.save')}</button>
+            <Button className="mb-5" onClick={getCurrencies}>click me</Button>
+            <div className="border p-4 rounded-2xl">{ listContent }</div>
+        </div>
 }

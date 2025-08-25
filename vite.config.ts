@@ -4,8 +4,20 @@ import react from '@vitejs/plugin-react-swc'
 import { fileURLToPath, URL } from 'node:url'
 import tailwindcss from '@tailwindcss/vite'
 import { visualizer } from 'rollup-plugin-visualizer'
+import svgr from "vite-plugin-svgr";
+
+
 // https://vite.dev/config/
-export default function defineProject({ command, mode, isSsrBuild, isPreview }: { command: string; mode: string; isSsrBuild: boolean; isPreview: boolean }): UserConfig {
+
+
+interface ConfigEnv {
+  command: 'build' | 'serve'
+  mode: string
+  isSsrBuild: boolean
+  isPreview: boolean
+}
+
+export default function defineProject({ command, mode, isSsrBuild, isPreview }: ConfigEnv): UserConfig {
   console.log('command:', command)
   console.log('mode:', mode)
   console.log('isSsrBuild:', isSsrBuild)
@@ -18,6 +30,7 @@ export default function defineProject({ command, mode, isSsrBuild, isPreview }: 
         plugins: [
         react(),
         tailwindcss(), 
+        svgr(),
         visualizer(),
       ],
       server: {
