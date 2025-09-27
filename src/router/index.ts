@@ -17,9 +17,7 @@ const routes: RouteObject[] = [
   {
     path: "/dashboard",
     Component: Dashboard,
-    loader:  () => {
-       throw new Error('Error in loader');
-    },
+    
     ErrorBoundary:DashboardErrorBoundary
   },
   {

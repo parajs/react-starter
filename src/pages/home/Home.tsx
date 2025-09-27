@@ -35,6 +35,8 @@ export default function Home(){
    return <div>
             <Reactsvg />
             <div>Home</div>
+            <title>chenzhen</title>
+            <meta name="description" content="this is chenzhen's website" />
             <div>{ token}</div>
             <h1>{t('common:welcome')}</h1>
             <p>{t('home:subtitle')}</p>
