@@ -1,18 +1,18 @@
-import {  forwardRef, memo, useCallback, useRef, useState } from "react";
+import { useRef, useState } from "react";
 
-// 子组件
-import type { InputHTMLAttributes } from "react";
 
-interface Props extends InputHTMLAttributes<HTMLInputElement> {
+
+interface Props extends React.InputHTMLAttributes<HTMLInputElement>, React.RefAttributes<HTMLInputElement> {
 
 }
 
-const CustomInput = memo(forwardRef<HTMLInputElement, Props>((props, ref) => {
-    console.log('ref',ref);
-    return <input ref={ref} {...props} onChange={props.onChange} />;
-})) 
-CustomInput.displayName = "CustomInput";
 
+
+const CustomInput = (props: Props) => {
+    console.log('ref',props.ref);
+    return <input ref={props.ref} {...props} onChange={props.onChange} />;
+}
+CustomInput.displayName = "CustomInput";
 
 
 
@@ -23,12 +23,12 @@ export default function Dashboard() {
         inputRef.current && inputRef.current.focus();
     };
 
-    const [first, setfirst] = useState('');
+   const [first, setfirst] = useState('');
    const [n, setNum] = useState(0)
 
-    const handleinputChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleinputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setfirst(e.target.value);
-    }, []);
+    }
 
     const handleClick = ()=>{
         setNum(n+1)

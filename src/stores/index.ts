@@ -12,10 +12,13 @@ interface State {
 const localStoreUser =
   typeof window !== "undefined" ? getLocalStorage("user", true) ?? {} : {};
 
+const localToken =
+  typeof window !== "undefined" ? getLocalStorage("token", true) ?? null : null;  
+
 export const useUserStore = create<State>()(
   devtools(
     (set) => ({
-      token: 'chenguzhen87',  
+      token: localToken,  
       user: localStoreUser,
       setUser: (user: Record<string, any>) => set(() => ({ user })),
       reset: () => set(() => ({ user: {} })),

@@ -1,6 +1,6 @@
 import { loadEnv, type UserConfig } from 'vite'
-// import react from '@vitejs/plugin-react'
-import react from '@vitejs/plugin-react-swc' 
+import react from '@vitejs/plugin-react'
+// import react from '@vitejs/plugin-react-swc' 
 import { fileURLToPath, URL } from 'node:url'
 import tailwindcss from '@tailwindcss/vite'
 import { visualizer } from 'rollup-plugin-visualizer'
@@ -28,7 +28,13 @@ export default function defineProject({ command, mode, isSsrBuild, isPreview }: 
 
   return {
         plugins: [
-        react(),
+        react(
+          // {
+          //    babel: {
+          //       plugins: [['babel-plugin-react-compiler']],
+          //   },
+          // }
+        ),
         tailwindcss(), 
         svgr(),
         visualizer(),
